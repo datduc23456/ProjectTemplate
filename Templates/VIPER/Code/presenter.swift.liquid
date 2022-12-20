@@ -1,0 +1,33 @@
+//
+//  {{ prefix }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+final class {{ module_info.name }}Presenter {
+
+    private weak var view: {{ module_info.name }}ViewInterface?
+    private var interactor: {{ module_info.name }}InteractorInterface
+    private var wireframe: {{ module_info.name }}WireframeInterface
+
+    init(view: {{ module_info.name }}ViewInterface,
+         interactor: {{ module_info.name }}InteractorInterface,
+         wireframe: {{ module_info.name }}WireframeInterface) {
+        self.view = view
+        self.interactor = interactor
+        self.wireframe = wireframe
+    }
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}PresenterInterface {
+}
+
+extension {{ module_info.name }}Presenter: {{ module_info.name }}InteractorOutputInterface {
+
+    func handleError(_ error: Error, _ completion: (() -> Void)?) {
+        view?.hideLoading()
+        wireframe.handleError(error, completion)
+    }
+}

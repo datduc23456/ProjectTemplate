@@ -1,0 +1,38 @@
+//
+//  {{ prefix }}{{ module_info.file_name }}
+//  {{ module_info.project_name }}
+//
+//  Created by {{ developer.name }} on {{ date }}.
+//  Copyright © {{ year }} {{ developer.company }}. All rights reserved.
+//
+
+import UIKit
+
+final class {{ module_info.name }}Wireframe: {{ module_info.name }}WireframeInterface {
+	var navigator: BaseNavigator!
+    static func generateModule(_ payload: Any?) -> UIViewController {
+	var storyboardName = "{{ module_info.name }}ViewController"
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            storyboardName = "{{ module_info.name }}ViewController_iPad"
+        }
+        let initialViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateInitialViewController() as! {{ module_info.name }}ViewController
+        initialViewController.payload = payload
+	initialViewController.modalPresentationStyle = .fullScreen
+        // let vc = initialViewController.topViewController as! {{ module_info.name }}ViewController
+        let wireframe = {{ module_info.name }}Wireframe()
+	wireframe.navigator = BaseNavigator()
+	wireframe.navigator.delegate = initialViewController
+        let interactor = {{ module_info.name }}Interactor()
+        let presenter = {{ module_info.name }}Presenter(
+            view: initialViewController,
+            interactor: interactor,
+            wireframe: wireframe)
+        interactor.output = presenter
+        initialViewController.presenter = presenter
+        return initialViewController
+    }
+
+	func handleError(_ error: Error, _ completion: (() -> Void)?) {
+        
+    }
+}

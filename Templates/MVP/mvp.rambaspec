@@ -1,0 +1,34 @@
+# Template information section
+name: "MVP"
+summary: "Template for creating MVP modules."
+author: "Ivan Smetanin"
+version: "1.0.0"
+license: "MIT"
+
+# The declarations for code files
+
+code_files:
+
+# Presenter layer
+- {name: Presenter/Presenter.swift, path: Code/Presenter/presenter.swift.liquid}
+
+# View layer
+- {name: View/ViewController.swift, path: Code/View/view_controller.swift.liquid}
+# - {name: View/ViewController.storyboard, path: Code/View/view_controller.storyboard.liquid}
+- {name: View/ViewController.xib, path: Code/View/view_controller.xib.liquid}
+
+# The declarations for test files
+
+test_files:
+
+# Configurators tests
+- {name: Configurator/ModuleConfiguratorTests.swift, path: Tests/Configurator/module_configurator_tests.swift.liquid}
+
+# Router tests
+- {name: Router/RouterTests.swift, path: Tests/Router/router_tests.swift.liquid}
+
+# Presenter tests
+- {name: Presenter/PresenterTests.swift, path: Tests/Presenter/presenter_tests.swift.liquid}
+
+# View tests
+- {name: View/ViewTests.swift, path: Tests/View/view_tests.swift.liquid}

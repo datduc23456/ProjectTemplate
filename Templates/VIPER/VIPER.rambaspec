@@ -1,0 +1,11 @@
+# The declarations for code files
+name: "module"
+
+code_files:
+- {name: Interfaces.swift, path: Code/interfaces.swift.liquid}
+- {name: Presenter.swift, path: Code/presenter.swift.liquid}
+- {name: Interactor.swift, path: Code/interactor.swift.liquid}
+- {name: Wireframe.swift, path: Code/wireframe.swift.liquid}
+- {name: Views/ViewController.storyboard, path: Code/View/viewcontroller.xib.liquid}
+- {name: Views/ViewController_iPad.storyboard, path: Code/View/viewcontroller_iPad.xib.liquid}
+- {name: Views/ViewController.swift, path: Code/View/viewcontroller.swift.liquid}
